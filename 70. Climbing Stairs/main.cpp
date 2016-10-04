@@ -7,9 +7,29 @@
 //
 
 #include <iostream>
+#include <vector>
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+using namespace std;
+
+int climbStairs(int n)
+{
+    vector<int> resultVec;
+    resultVec.push_back(1);
+    resultVec.push_back(2);
+
+    for (int i = 2; i < n; i++)
+    {
+        resultVec.push_back(resultVec[i - 1] + resultVec[i - 2]);
+    }
+
+    return resultVec[n-1];
+}
+
+int main(int argc, const char * argv[])
+{
+    int res = climbStairs(7);
+    cout << res;
+
+
     return 0;
 }
